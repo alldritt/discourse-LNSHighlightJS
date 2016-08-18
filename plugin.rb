@@ -20,10 +20,11 @@ after_initialize do
 		result = File.read(path + "highlight.js")
 		
 		# Patch the contents of highlight.js (now in result) to incldue our code...
+		matchCode = "return{"
 		newCode = "if (name == \"applescript\") {
   result = \"<p><strong><a class=\\\"hljs-title\\\" href=\\\"sdapplescript://com.apple.scriptdebugger?action=new&script=\" + encodeURIComponent(value) + \"\\\">Open in Script Debugger</a></strong></p>\" + result;
 }"
-		result = result.sub("return{", newCode + "return{")
+		result = "/*mark*/" + result.sub(matchCode, newCode + matchCode)
     	
 		langs.each do |lang|
 		  begin
