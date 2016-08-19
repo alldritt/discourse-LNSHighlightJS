@@ -4,6 +4,8 @@
 # authors: 	Mark Alldritt
 # url:		https://github.com/alldritt/discourse-LNSHighlightJS
 
+require 'syslog'
+
 
 after_initialize do
 
