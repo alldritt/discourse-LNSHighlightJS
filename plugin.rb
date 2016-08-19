@@ -24,7 +24,7 @@ module ::HighlightJs
   end
 
   def self.bundle(langs)
-	puts("LNSHighlightJS.b")
+	#puts("LNSHighlightJS.b")
 
 	path = File.dirname(__FILE__) << "/../../lib/assets/"
 
