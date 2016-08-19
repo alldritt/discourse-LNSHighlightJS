@@ -32,7 +32,7 @@ after_initialize do
 #  result = \"<p><strong><a class=\\\"hljs-title\\\" href=\\\"sdapplescript://com.apple.scriptdebugger?action=new&script=\" + encodeURIComponent(value) + \"\\\">Open in Script Debugger</a></strong></p>\" + result;
 #}"
 #	  result = "/*mark*/" + result.sub(matchCode, newCode + matchCode)
-	  result = "console.log(\"mark\");" + result;
+#	  result = "console.log(\"mark\");" + result;
 	  langs.each do |lang|
 	    begin
 		  result << "\n" << File.read(path + "lang/#{lang}.js")
