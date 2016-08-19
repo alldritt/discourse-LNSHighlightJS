@@ -4,12 +4,10 @@
 # authors: 	Mark Alldritt
 # url:		https://github.com/alldritt/discourse-LNSHighlightJS
 
-require 'syslog'
-
 
 after_initialize do
 
-  Syslog.alert("LNSHighlightJS.a");
+  puts("LNSHighlightJS.a")
   
   module HighlightJs
 	  def self.languages
@@ -19,7 +17,7 @@ after_initialize do
 	  end
 
 	  def self.bundle(langs)
-	    Syslog.alert("LNSHighlightJS.b");
+	    puts("LNSHighlightJS.b")
 
 		path = File.dirname(__FILE__) << "/../../lib/assets/"
 
