@@ -7,6 +7,8 @@
 
 after_initialize do
 
+  Syslog.alert("LNSHighlightJS.a");
+  
   module HighlightJs
 	  def self.languages
 		Dir.glob(File.dirname(__FILE__) << "/../../lib/assets/lang/*.js").map do |path|
@@ -15,6 +17,8 @@ after_initialize do
 	  end
 
 	  def self.bundle(langs)
+	    Syslog.alert("LNSHighlightJS.b");
+
 		path = File.dirname(__FILE__) << "/../../lib/assets/"
 
 		result = File.read(path + "highlight.js")
