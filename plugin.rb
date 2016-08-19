@@ -10,10 +10,6 @@ after_initialize do
   puts("LNSHighlightJS.a")
   puts("LNSHighlightJS.a.1: " + self.class.name);
   
-  #if Required::Module.const_defined?("HighlightJs") then
-  #  puts("LNSHighlightJS.a.2: HighlightJs defined");
-  #end
-  
   module ::HighlightJs
     def self.languages
 	  Dir.glob(File.dirname(__FILE__) << "/../../lib/assets/lang/*.js").map do |path|
