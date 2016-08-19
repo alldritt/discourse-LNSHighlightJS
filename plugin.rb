@@ -11,36 +11,38 @@ after_initialize do
   puts("LNSHighlightJS.a.1: " + self.class.name);
   
   module ::HighlightJs
-    def self.languages
-	  Dir.glob(File.dirname(__FILE__) << "/../../lib/assets/lang/*.js").map do |path|
-	    File.basename(path)[0..-4]
-	  end
-    end
+#    def self.languages
+#	  Dir.glob(File.dirname(__FILE__) << "/../../lib/assets/lang/*.js").map do |path|
+#	    File.basename(path)[0..-4]
+#	  end
+#   end
 
-#    def self.bundle(langs)
-#	  #puts("LNSHighlightJS.b")
-#
-#	  path = File.dirname(__FILE__) << "/../../lib/assets/"
-#
-#	  result = File.read(path + "highlight.js")
-#	
+    def self.bundle(langs)
+	  #puts("LNSHighlightJS.b")
+
+	  path = File.dirname(__FILE__) << "/../../lib/assets/"
+
+	  result = File.read(path + "highlight.js")
+	
+	  #puts("hello world")
+
 #	  # Patch the contents of highlight.js (now in result) to incldue our code...
 #	  matchCode = "return{"
 #	  newCode = "if (name == \"applescript\") {
 #  result = \"<p><strong><a class=\\\"hljs-title\\\" href=\\\"sdapplescript://com.apple.scriptdebugger?action=new&script=\" + encodeURIComponent(value) + \"\\\">Open in Script Debugger</a></strong></p>\" + result;
 #}"
 #	  result = "/*mark*/" + result.sub(matchCode, newCode + matchCode)
-#	
-#	  langs.each do |lang|
-#	    begin
-#		  result << "\n" << File.read(path + "lang/#{lang}.js")
-#	    rescue Errno::ENOENT
-#		  # no file, don't care
-#	    end
-#	  end
-#
-#	  result
-#    end
+	  result = "console.log(\"mark\");" + result;
+	  langs.each do |lang|
+	    begin
+		  result << "\n" << File.read(path + "lang/#{lang}.js")
+	    rescue Errno::ENOENT
+		  # no file, don't care
+	    end
+	  end
+
+	  result
+    end
 
 #    def self.version(lang_string)
 #	  (@lang_string_cache ||= {})[lang_string] ||=
