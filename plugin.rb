@@ -18,6 +18,8 @@ after_initialize do
 #   end
 
     def self.bundle(langs)
+      warn("LNSHighlightJS.HighlightJs.bundle");
+
 	  path = File.dirname(__FILE__) << "/../../lib/highlight_js/assets/"
 
  	  result = File.read(path + "highlight.js")
