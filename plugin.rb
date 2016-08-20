@@ -10,10 +10,7 @@ after_initialize do
   puts("LNSHighlightJS.a")
   puts("LNSHighlightJS.a.1: " + self.class.name);
   
-
-end
-
-module ::HighlightJs
+  module ::HighlightJs
 #    def self.languages
 #	  Dir.glob(File.dirname(__FILE__) << "/../../lib/assets/lang/*.js").map do |path|
 #	    File.basename(path)[0..-4]
@@ -41,7 +38,7 @@ module ::HighlightJs
 	  end
 
 	  result
-   end
+    end
 
 #    def self.version(lang_string)
 #	  (@lang_string_cache ||= {})[lang_string] ||=
@@ -51,4 +48,6 @@ module ::HighlightJs
 #    def self.path
 #	  "/highlight-js/#{Discourse.current_hostname}/#{version SiteSetting.highlighted_languages}.js"
 #    end
+  end
 end
+
