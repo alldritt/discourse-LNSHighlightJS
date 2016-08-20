@@ -20,32 +20,28 @@ module ::HighlightJs
 #	  end
 #   end
 
-#    def self.bundle(langs)
-#	  #puts("LNSHighlightJS.b")
-#
-#	  path = File.dirname(__FILE__) << "/../../lib/assets/"
-#
-#	  result = File.read(path + "highlight.js")
-#	
-#	  #puts("hello world")
-#
-#	  # Patch the contents of highlight.js (now in result) to incldue our code...
-#	  matchCode = "return{"
-#	  newCode = "if (name == \"applescript\") {
-#  result = \"<p><strong><a class=\\\"hljs-title\\\" href=\\\"sdapplescript://com.apple.scriptdebugger?action=new&script=\" + encodeURIComponent(value) + \"\\\">Open in Script Debugger</a></strong></p>\" + result;
-#}"
-#	  result = "/*mark*/" + result.sub(matchCode, newCode + matchCode)
-#	  result = "console.log(\"mark\");" + result;
-#	  langs.each do |lang|
-#	    begin
-#		  result << "\n" << File.read(path + "lang/#{lang}.js")
-#	    rescue Errno::ENOENT
-#		  # no file, don't care
-#	    end
-#	  end
-#
-#	  result
-#   end
+    def self.bundle(langs)
+	  path = File.dirname(__FILE__) << "/../../lib/highlight_js/assets/"
+
+ 	  result = File.read(path + "highlight.js")
+	
+	  # Patch the contents of highlight.js (now in result) to incldue our code...
+	  matchCode = "return{"
+	  newCode = "if (name == \"applescript\") {
+  result = \"<p><strong><a class=\\\"hljs-title\\\" href=\\\"sdapplescript://com.apple.scriptdebugger?action=new&script=\" + encodeURIComponent(value) + \"\\\">Open in Script Debugger</a></strong></p>\" + result;
+}"
+	  result = result.sub(matchCode, newCode + matchCode)
+
+	  langs.each do |lang|
+	    begin
+		  result << "\n" << File.read(path + "lang/#{lang}.js")
+	    rescue Errno::ENOENT
+		  # no file, don't care
+	    end
+	  end
+
+	  result
+   end
 
 #    def self.version(lang_string)
 #	  (@lang_string_cache ||= {})[lang_string] ||=
