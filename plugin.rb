@@ -23,9 +23,16 @@ after_initialize do
 
  	  result = File.read(path + "highlight.js")
 	
-	  # Patch the contents of highlight.js (now in result) to incldue our code...
+	  # Patch the contents of highlight.js (now in result) to incldue our code.  Note that this version of
+	  # highlight.js has been minified and the variable names have been changed:
+	  #
+	  #		e = name
+	  #		L = result
+	  #		t = value
+	  #
 	  matchCode = "return{"
-	  newCode = "if(e==\"applescript\"){L=\"<p><strong><a class=\\\"hljs-title no-track-link\\\" href=\\\"sdapplescript://com.apple.scriptdebugger?action=new&script=\"+encodeURIComponent(t)+\"\\\">Open in Script Debugger</a></strong></p>\"+L;}"
+	  newCode = "if(e==\"applescript\"){L=\"<p><strong><a class=\\\"hljs-title no-track-link\\\" onclick=\\\"window.open('sdapplescript://com.apple.scriptdebugger?action=new&script=\"+encodeURIComponent(t)+\"';return 0;)\\\">Open in Script Debugger</a></strong></p>\"+L;}"
+	  
 	  result = result.sub(matchCode, newCode + matchCode)
 
 	  langs.each do |lang|
