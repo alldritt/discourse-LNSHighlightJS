@@ -25,7 +25,7 @@ after_initialize do
 	
 	  # Patch the contents of highlight.js (now in result) to incldue our code...
 	  matchCode = "return{"
-	  newCode = "if(e==\"applescript\"){L=\"<p><strong><a class=\\\"hljs-title\\\" href=\\\"sdapplescript://com.apple.scriptdebugger?action=new&script=\"+encodeURIComponent(t)+\"\\\">Open in Script Debugger</a></strong></p>\"+L;}"
+	  newCode = "if(e==\"applescript\"){L=\"<p><strong><a class=\\\"hljs-title no-track-link\\\" href=\\\"sdapplescript://com.apple.scriptdebugger?action=new&script=\"+encodeURIComponent(t)+\"\\\">Open in Script Debugger</a></strong></p>\"+L;}"
 	  result = result.sub(matchCode, newCode + matchCode)
 
 	  langs.each do |lang|
