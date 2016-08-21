@@ -11,7 +11,7 @@ after_initialize do
   
   module ::HighlightJs
 #    def self.languages
-#	  Dir.glob(File.dirname(__FILE__) << "/../../lib/assets/lang/*.js").map do |path|
+#	  Dir.glob(File.dirname(__FILE__) << "/../../lib/highlight_js/assets/lang/*.js").map do |path|
 #	    File.basename(path)[0..-4]
 #	  end
 #   end
@@ -31,7 +31,7 @@ after_initialize do
 	  #		t = value
 	  #
 	  matchCode = "return{"
-	  newCode = "if(e==\"applescript\"){L=\"<p><strong><a class=\\\"hljs-title no-track-link\\\" onclick=\\\"window.open('sdapplescript://com.apple.scriptdebugger?action=new&script=\"+encodeURIComponent(t)+\"';return 0;)\\\">Open in Script Debugger</a></strong></p>\"+L;}"
+	  newCode = "if(e==\"applescript\"){L=\"<p><strong><a class=\\\"hljs-title no-track-link\\\" onclick=\\\"window.open('sdapplescript://com.apple.scriptdebugger?action=new&script=\"+encodeURIComponent(t)+\"');return 0;\\\">Open in Script Debugger</a></strong></p>\"+L;}"
 	  
 	  result = result.sub(matchCode, newCode + matchCode)
 
