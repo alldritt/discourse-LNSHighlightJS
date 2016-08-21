@@ -7,8 +7,7 @@
 
 after_initialize do
 
-  puts("LNSHighlightJS.a")
-  puts("LNSHighlightJS.a.1: " + self.class.name);
+  #puts("LNSHighlightJS.a")
   
   module ::HighlightJs
 #    def self.languages
