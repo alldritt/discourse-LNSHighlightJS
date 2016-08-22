@@ -31,7 +31,7 @@ after_initialize do
 	  #		t = value
 	  #
 	  matchCode = "return{"
-	  newCode = "if(e==\"applescript\"){L=\"<p><strong><a class=\\\"hljs-title no-track-link\\\" onclick='window.open(\\\"sdapplescript://com.apple.scriptdebugger?action=new&script=\"+encodeURIComponent(t)+\"\\\",'_self');return 0;'>Open in Script Debugger</a></strong></p>\"+L;}"
+	  newCode = "if(e==\"applescript\"){L=\"<p><strong><a class=\\\"hljs-title no-track-link\\\" onclick='window.open(\\\"sdapplescript://com.apple.scriptdebugger?action=new&script=\"+encodeURIComponent(t)+\"\\\",\\\"_self\\\");return 0;'>Open in Script Debugger</a></strong></p>\"+L;}"
 	  
 	  result = result.sub(matchCode, newCode + matchCode)
 
