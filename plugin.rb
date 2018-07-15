@@ -1,9 +1,19 @@
 # name: 	LNSHighlightJS
 # about: 	Patch HighlightJs module to provide applescript:// links
-# version: 	0.1
+# version: 	0.2
 # authors: 	Mark Alldritt
 # url:		https://github.com/alldritt/discourse-LNSHighlightJS
 
+#
+#  This is a hack.  Discourse uses the minified version of highlight.js to perform code highlighting.  This plugin hacks the contents
+#  of highlight.js to introduce additional HTML for AppleScript code snippets.  This is *extreamly* fragile in that any significant
+#  change to highlight.js will render this code in operable (it has already happened).
+#
+#  To fix this, you have to find the part of the highlight(...) function within highlight.js which returns the highlighted HTML
+#  string, and insert the additional HTML code.  This can only be done by looking at the source version on the HighlighJS GitHub
+#  page, and then find the corresponding code in the minified version.
+#
+#
 
 after_initialize do
 
