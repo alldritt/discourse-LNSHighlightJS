@@ -30,8 +30,8 @@ after_initialize do
 	  #		L = result
 	  #		t = value
 	  #
-	  matchCode = "return{"
-	  newCode = "if(e==\"applescript\"){L=\"<p><strong><a class=\\\"hljs-title no-track-link\\\" onclick=\\\"window.open('sdapplescript://com.apple.scriptdebugger?action=new&script=\"+encodeURIComponent(t).replace(/\\\"/g,\"%22\").replace(/'/g,\"%27\")+\"','_self');return 0;\\\">Open in Script Debugger</a></strong></p>\"+L;}"
+	  matchCode = ";return{r:B,value:y,language:e,top:"
+	  newCode = ";if(e==\"applescript\"){y=\"<p><strong><a class=\\\"hljs-title no-track-link\\\" onclick=\\\"window.open('sdapplescript://com.apple.scriptdebugger?action=new&script=\"+encodeURIComponent(t).replace(/\\\"/g,\"%22\").replace(/'/g,\"%27\")+\"','_self');return 0;\\\">Open in Script Debugger</a></strong></p>\"+y;}"
 	  
 	  result = result.sub(matchCode, newCode + matchCode)
 
