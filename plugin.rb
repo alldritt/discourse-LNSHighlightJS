@@ -1,5 +1,5 @@
 # name: 	LNSHighlightJS
-# about: 	Patch HighlightJs module to provide applescript:// links
+# about: 	Patch HighlightJs module to provide applescript HTML links
 # version: 	0.2
 # authors: 	Mark Alldritt
 # url:		https://github.com/alldritt/discourse-LNSHighlightJS
