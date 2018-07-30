@@ -4,27 +4,27 @@
 # authors: 	Mark Alldritt
 # url:		https://github.com/alldritt/discourse-LNSHighlightJS
 
-#
-#  This is a hack.  Discourse uses the minified version of highlight.js to perform code highlighting.  This plugin hacks the contents
-#  of highlight.js to introduce additional HTML for AppleScript code snippets.  This is *extreamly* fragile in that any significant
-#  change to highlight.js will render this code in operable (it has already happened).
-#
-#  To fix this, you have to find the part of the highlight(...) function within highlight.js which returns the highlighted HTML
-#  string, and insert the additional HTML code.  This can only be done by looking at the source version on the HighlighJS GitHub
-#  page, and then find the corresponding code in the minified version.
-#
-#
+ #
+ #  This is a hack.  Discourse uses the minified version of highlight.js to perform code highlighting.  This plugin hacks the contents
+ #  of highlight.js to introduce additional HTML for AppleScript code snippets.  This is *extreamly* fragile in that any significant
+ #  change to highlight.js will render this code in operable (it has already happened).
+ #
+ #  To fix this, you have to find the part of the highlight(...) function within highlight.js which returns the highlighted HTML
+ #  string, and insert the additional HTML code.  This can only be done by looking at the source version on the HighlighJS GitHub
+ #  page, and then find the corresponding code in the minified version.
+ #
+ #
 
 after_initialize do
 
   puts("LNSHighlightJS.a")
   
   module ::HighlightJs
-#    def self.languages
-#	  Dir.glob(File.dirname(__FILE__) << "/../../lib/highlight_js/assets/lang/*.js").map do |path|
-#	    File.basename(path)[0..-4]
-#	  end
-#   end
+ #    def self.languages
+ #	  Dir.glob(File.dirname(__FILE__) << "/../../lib/highlight_js/assets/lang/*.js").map do |path|
+ #	    File.basename(path)[0..-4]
+ #	  end
+ #   end
 
     def self.bundle(langs)
       warn("LNSHighlightJS.HighlightJs.bundle");
@@ -56,14 +56,14 @@ after_initialize do
 	  result
     end
 
-#    def self.version(lang_string)
-#	  (@lang_string_cache ||= {})[lang_string] ||=
-#	    Digest::SHA1.hexdigest(bundle lang_string.split("|"))
-#    end
+ #    def self.version(lang_string)
+ #	  (@lang_string_cache ||= {})[lang_string] ||=
+ #	    Digest::SHA1.hexdigest(bundle lang_string.split("|"))
+ #    end
 
-#    def self.path
-#	  "/highlight-js/#{Discourse.current_hostname}/#{version SiteSetting.highlighted_languages}.js"
-#    end
+ #    def self.path
+ #	  "/highlight-js/#{Discourse.current_hostname}/#{version SiteSetting.highlighted_languages}.js"
+ #    end
   end
 end
 
