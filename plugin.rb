@@ -17,7 +17,7 @@
 
 after_initialize do
 
-  #puts("LNSHighlightJS.a")
+  puts("LNSHighlightJS.a")
   
   module ::HighlightJs
 #    def self.languages
